@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alliant Solutions - Your Partner for Every Need</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Color Palette - Extracted from Logo */
+        :root {
+            --primary: #1a4b8c;
+            --secondary: #2c7ac3;
+            --accent: #f8b739;
+            --light: #f0f5ff;
+            --dark: #333333;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+            --transition: all 0.3s ease;
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 75, 140, 0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(26, 75, 140, 0.3);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #0f1f36;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        /* Navbar when scrolled */
+        header.scrolled {
+            padding: 0.1rem 0;
+            background-color: rgb(15, 31, 54);
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        /* Navbar when scrolled */
+        header.scrolled .navbar {
+            padding: 0.1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        /* Logo when scrolled */
+        header.scrolled .logo {
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        /* ANIMATED UNDERLINE EFFECT */
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hamburger when scrolled */
+        header.scrolled .hamburger {
+            font-size: 1.2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f1f36 0%, #0f1f36 100%);
+            color: var(--white);
+            padding: 10rem 0 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--white);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: center; /* Added this line to center the text */
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 90%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mission-vision {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .mission, .vision {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .mission:hover, .vision:hover {
+            transform: translateY(-5px);
+        }
+        
+        .mission i, .vision i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--gray);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+        }
+        
+        /* Why Choose Us Section */
+        .why-us {
+            background-color: var(--white);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .feature i {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--gray);
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+        
+        .contact-details {
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 10px 0;
+        }
+        
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-item-content {
+            flex: 1;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+            text-align: center;
+        }
+        
+        /* WhatsApp Popup Styles */
+        .whatsapp-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 320px;
+            height: 450px;
+            background-color: #e5ddd5;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            font-family: 'Segoe UI', sans-serif;
+            transform: translateY(20px) scale(0.9);
+            opacity: 0;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+        }
+        
+        .whatsapp-popup.active {
+            display: flex;
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            animation: popupBounce 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .whatsapp-popup.closing {
+            transform: translateY(20px) scale(0.9);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        @keyframes popupBounce {
+            0% {
+                transform: translateY(20px) scale(0.9);
+                opacity: 0;
+            }
+            60% {
+                transform: translateY(-10px) scale(1.02);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .whatsapp-header {
+            background-color: #075e54;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: transform 0.4s ease 0.2s, opacity 0.4s ease 0.2s;
+        }
+        
+        .whatsapp-popup.active .whatsapp-header {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .whatsapp-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        @keyframes avatarPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(18, 140, 126, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(18, 140, 126, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(18, 140, 126, 0);
+            }
+        }
+        
+        .whatsapp-info {
+            flex: 1;
+        }
+        
+        .whatsapp-info h4 {
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        .whatsapp-info p {
+            margin: 0;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .whatsapp-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .whatsapp-close:hover {
+            transform: rotate(90deg);
+        }
+        
+        .whatsapp-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><path fill="%23075e54" d="M30,30 Q50,10 70,30 Q90,50 70,70 Q50,90 30,70 Q10,50 30,30 Z"/></svg>');
+        }
+        
+        .whatsapp-message {
+            max-width: 80%;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 7.5px;
+            position: relative;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            transform: translateY(10px);
+            opacity: 0;
+            animation: messageSlideIn 0.4s forwards;
+        }
+        
+        @keyframes messageSlideIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .whatsapp-message.received {
+            background-color: white;
+            align-self: flex-start;
+            border-top-left-radius: 0;
+            animation-delay: 0.5s;
+        }
+        
+        .whatsapp-message.sent {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+            margin-left: auto;
+            border-top-right-radius: 0;
+            animation-delay: 0s;
+        }
+        
+        .whatsapp-time {
+            font-size: 0.7rem;
+            text-align: right;
+            margin-top: 5px;
+            opacity: 0.6;
+        }
+        
+        .whatsapp-footer {
+            padding: 10px;
+            background-color: #f0f0f0;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: transform 0.4s ease 0.3s, opacity 0.4s ease 0.3s;
+        }
+        
+        .whatsapp-popup.active .whatsapp-footer {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .whatsapp-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            font-size: 0.9rem;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .whatsapp-input:focus {
+            box-shadow: 0 0 0 2px rgba(7, 94, 84, 0.2);
+        }
+        
+        .whatsapp-send {
+            background-color: #075e54;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-send:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-send:active {
+            transform: scale(0.95);
+        }
+        
+        .whatsapp-launcher {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: launcherPulse 2s infinite;
+        }
+        
+        @keyframes launcherPulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7);
+            }
+            100% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+        }
+        
+        .whatsapp-launcher:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-launcher i {
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                color: white;
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                background-color: #0f1f36;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: right 0.3s ease;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .whatsapp-popup {
+                width: 300px;
+                height: 420px;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 8rem 0 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .whatsapp-popup {
+                width: 280px;
+                height: 400px;
+            }
+        }
+
+        .logo img {
+            height: 60px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        /* Logo image when scrolled */
+        header.scrolled .logo img {
+            height: 45px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="container">
+            <nav class="navbar">
+                <!-- <a href="#" class="logo">Alliant<span>Solutions</span></a> -->
+                 <a href="#" class="logo">
+                    <img src="header.png" alt="Alliant Solutions" style="height: 40px;">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#why-us">Why Choose Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Partner for Every Need</h1>
+                <p>Reliable, fast, and trusted solutions to help you live, work, and grow in the UAE without unnecessary stress.</p>
+                <a href="#services" class="btn">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div align="center">
+                <p>Alliant Solutions is a service-based firm dedicated to solving the everyday challenges faced by people in the UAE. From job assistance and accommodation support to educational guidance and business solutions, we provide reliable, fast, and trusted services to make life easier for individuals and families.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    
+                    <div class="mission-vision">
+                        <div class="mission">
+                            <i class="fas fa-bullseye"></i>
+                            <h3>Our Mission</h3>
+                            <p>To provide reliable, fast, and trusted solutions that help people live, work, and grow in the UAE without unnecessary stress.</p>
+                        </div>
+                        <div class="vision">
+                            <i class="fas fa-eye"></i>
+                            <h3>Our Vision</h3>
+                            <p>To become the most trusted problem-solving partner in the UAE, offering end-to-end solutions for every need.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- Placeholder for company image -->
+                    <!-- <div style="width:100%; height:300px; background:linear-gradient(135deg, var(--light) 0%, var(--secondary) 100%); border-radius:8px; display:flex; align-items:center; justify-content:center; color:var(--white); font-size:1.2rem;"> -->
+                        <img src="2.JPG" alt="Alliant Solutions Team">
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <a href="https://wa.me/971589288746?text=Job Assistance" style="text-decoration: none;">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Job Assistance</h3>
+                        <p style="color: black;">Helping job seekers connect with employers and providing interview guidance.</p>
+                    </div>
+                </a>
+                <a href="https://wa.me/971589288746?text=Accommodation Support" style="text-decoration: none;">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Accommodation Support</h3>
+                        <p style="color: black;">Assistance in finding apartments, shared flats, or villas.</p>
+                    </div>
+                </a>
+                <a href="https://wa.me/971589288746?text=Educational Support" style="text-decoration: none;">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Educational Support</h3>
+                        <p style="color: black;">Private tuition and guidance for school admissions.</p>
+                    </div>
+                </a>
+                <a href="https://wa.me/971589288746?text=Buying & Selling" style="text-decoration: none;">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Buying & Selling Assistance</h3>
+                        <p style="color: black;">Connecting buyers and sellers for smooth transactions.</p>
+                    </div>
+                </a>
+                <a href="https://wa.me/971589288746?text=Other Personal Solutions" style="text-decoration: none;">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Other Personal Solutions</h3>
+                        <p style="color: black;">Customized support for any challenges faced in the UAE.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h3>24/7 Customer Support</h3>
+                        <p>We're always available to assist you with your needs, day or night.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h3>Affordable & Transparent Pricing</h3>
+                        <p>No hidden costs or surprises - just honest, competitive pricing.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h3>Local Expertise</h3>
+                        <p>Deep understanding of the UAE market with a wide network of contacts.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h3>Tailor-made Solutions</h3>
+                        <p>Customized approaches designed specifically for your unique situation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Have questions or need assistance? Reach out to us and we'll be happy to help.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-user"></i>
+                            <div class="contact-item-content">
+                                <h4>Name</h4>
+                                <p>Ashwin KS</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-item-content">
+                                <h4>Mobile</h4>
+                                <p><a style="text-decoration: none; color: black;" href="tel:+971589288746" target="_blank">+971 58 928 8746</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-item-content">
+                                <h4>Email</h4>
+                                <p><a style="text-decoration: none; color: black;" href="mailto:alliantsolutions00@gmail.com" target="_blank">alliantsolutions00@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-instagram"></i>
+                            <div style="text-decoration: none; color: black;" class="contact-item-content">
+                                <h4>Instagram</h4>
+                                <p><a style="text-decoration: none; color: black;" href="https://instagram.com/alliant_solutions" target="_blank">@alliant_solutions</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Alliant Solutions</h3>
+                    <p>Your Partner for Every Need in the UAE. Reliable, fast, and trusted solutions for individuals and families.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#why-us">Why Choose Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/971589288746?text=Job Assistance">Job Assistance</a></li>
+                        <li><a href="https://wa.me/971589288746?text=Accommodation Support">Accommodation Support</a></li>
+                        <li><a href="https://wa.me/971589288746?text=Educational Support">Educational Support</a></li>
+                        <li><a href="https://wa.me/971589288746?text=Buying & Selling">Buying & Selling</a></li>
+                        <li><a href="https://wa.me/971589288746?text=Personal Solutions">Personal Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+971589288746"><i class="fas fa-phone"></i> +971 58 928 8746</a></li>
+                        <li><a href="mailto:alliantsolutions00@gmail.com"><i class="fas fa-envelope"></i> alliantsolutions00@gmail.com</a></li>
+                        <li><a href="https://instagram.com/alliant_solutions" target="_blank"><i class="fab fa-instagram"></i> @alliant_solutions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Alliant Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Launcher -->
+    <div class="whatsapp-launcher" id="whatsappLauncher">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- WhatsApp Popup -->
+    <div class="whatsapp-popup" id="whatsappPopup">
+        <div class="whatsapp-header">
+            <div class="whatsapp-avatar">
+                <img src="2.JPG" alt="Profile Picture" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
+            <div class="whatsapp-info">
+                <h4>Alliant Solutions</h4>
+                <p>Typically replies within an hour</p>
+            </div>
+            <button class="whatsapp-close" id="whatsappClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="whatsapp-body">
+            <div class="whatsapp-message received">
+                <p>Hello! 👋</p>
+                <p>Welcome to Alliant Solutions. How can we help you today?</p>
+                <div class="whatsapp-time">10:05 AM</div>
+            </div>
+        </div>
+        <div class="whatsapp-footer">
+            <input type="text" class="whatsapp-input" id="whatsappInput" placeholder="Type a message...">
+            <button class="whatsapp-send" id="whatsappSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Navbar scroll effect
+        const header = document.getElementById('mainHeader');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.classList.remove('scrolled');
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // WhatsApp Popup Functionality
+        const whatsappPopup = document.getElementById('whatsappPopup');
+        const whatsappLauncher = document.getElementById('whatsappLauncher');
+        const whatsappClose = document.getElementById('whatsappClose');
+        const whatsappSend = document.getElementById('whatsappSend');
+        const whatsappInput = document.getElementById('whatsappInput');
+        const whatsappBody = document.querySelector('.whatsapp-body');
+
+        let isPopupOpen = false;
+
+        // Show popup after 3 seconds
+        setTimeout(() => {
+            openPopup();
+        }, 3000);
+
+        // Toggle popup with launcher
+        whatsappLauncher.addEventListener('click', () => {
+            if (isPopupOpen) {
+                closePopup();
+            } else {
+                openPopup();
+            }
+        });
+
+        // Close popup
+        whatsappClose.addEventListener('click', () => {
+            closePopup();
+        });
+
+        // Send message functionality
+        whatsappSend.addEventListener('click', sendMessage);
+        whatsappInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function openPopup() {
+            whatsappPopup.classList.remove('closing');
+            whatsappPopup.classList.add('active');
+            isPopupOpen = true;
+            whatsappInput.focus();
+        }
+
+        function closePopup() {
+            whatsappPopup.classList.add('closing');
+            setTimeout(() => {
+                whatsappPopup.classList.remove('active');
+                isPopupOpen = false;
+            }, 300);
+        }
+
+        function sendMessage() {
+            const message = whatsappInput.value.trim();
+            if (message) {
+                // Add user message to chat
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('whatsapp-message', 'sent');
+                messageElement.innerHTML = `
+                    <p>${message}</p>
+                    <div class="whatsapp-time">${getCurrentTime()}</div>
+                `;
+                whatsappBody.appendChild(messageElement);
+                
+                // Clear input
+                whatsappInput.value = '';
+                
+                // Scroll to bottom
+                whatsappBody.scrollTop = whatsappBody.scrollHeight;
+                
+                // Redirect to WhatsApp after a short delay
+                setTimeout(() => {
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappUrl = `https://wa.me/971589288746?text=${encodedMessage}`;
+                    window.open(whatsappUrl, '_blank');
+                }, 1000);
+            }
+        }
+
+        function getCurrentTime() {
+            const now = new Date();
+            return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        }
+    </script>
+</body>
+</html>
